@@ -30,6 +30,8 @@ repositories {
 
 dependencies {
     compile('org.projectlombok:lombok:1.16.10')
+
+    compile('no.fint:fint-event-model:0.0.1')
 }
 
 if (project.hasProperty('bintrayUser') && project.hasProperty('bintrayKey')) {

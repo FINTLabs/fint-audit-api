@@ -1,7 +1,7 @@
 package no.fint.audit.model;
 
 import lombok.Data;
-import no.fint.event.Event;
+import no.fint.events.model.Event;
 
 import java.io.Serializable;
 

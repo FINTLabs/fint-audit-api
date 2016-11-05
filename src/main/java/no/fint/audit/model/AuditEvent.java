@@ -1,14 +1,15 @@
 package no.fint.audit.model;
 
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import no.fint.events.model.Event;
-import org.springframework.beans.factory.annotation.Value;
 
 import java.io.Serializable;
 
 @ToString
 @EqualsAndHashCode
+@NoArgsConstructor
 public class AuditEvent implements Serializable {
     private String corrId;
     private String source;

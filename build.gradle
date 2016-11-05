@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'no.fint'
-version '0.0.6-SNAPSHOT'
+version '0.0.7-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'maven'

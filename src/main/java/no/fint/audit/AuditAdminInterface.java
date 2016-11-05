@@ -1,11 +1,12 @@
 package no.fint.audit;
 
-import no.fint.audit.model.AuditEvent;
+import no.fint.events.model.Event;
 
 import java.util.List;
 
 public interface AuditAdminInterface {
-    public List<AuditEvent> getEventsByCorrId(String corrId);
-    public List<AuditEvent> getAllEvents();
-    public List<AuditEvent> searchEvents(String searchString);
+    public List<Event> getEventsByCorrId(String corrId);
+    public List<Event> getEventBySource(String source);
+    public List<Event> getAllEvents();
+    public List<Event> searchEvents(String searchString);
 }

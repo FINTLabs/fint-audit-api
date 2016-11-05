@@ -3,10 +3,11 @@ plugins {
 }
 
 group 'no.fint'
-version '0.0.5-SNAPSHOT'
+version '0.0.6-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'maven'
+apply plugin: 'groovy'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -28,6 +29,8 @@ dependencies {
     compile('org.projectlombok:lombok:1.16.10')
 
     compile('no.fint:fint-events:0.0.2')
+
+    testCompile('org.spockframework:spock-core:1.1-groovy-2.4-rc-2')
 }
 
 if (project.hasProperty('bintrayUser') && project.hasProperty('bintrayKey')) {

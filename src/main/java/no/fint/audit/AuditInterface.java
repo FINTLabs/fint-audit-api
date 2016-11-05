@@ -1,8 +1,8 @@
 package no.fint.audit;
 
 
-import no.fint.events.model.Event;
+import no.fint.audit.model.AuditEvent;
 
 public interface AuditInterface {
-    public void audit(Event auditEvent);
+    public void audit(AuditEvent auditEvent);
 }

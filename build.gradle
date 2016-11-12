@@ -28,7 +28,7 @@ repositories {
 dependencies {
     compile('org.projectlombok:lombok:1.16.10')
 
-    compile('no.fint:fint-events:0.0.2')
+    compile('no.fint:fint-event-model:0.0.1')
 
     testCompile('org.spockframework:spock-core:1.1-groovy-2.4-rc-2')
 }

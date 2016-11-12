@@ -1,6 +1,6 @@
 package no.fint.audit.model
 
-import no.fint.events.model.Event
+import no.fint.event.Event
 import spock.lang.Specification
 
 

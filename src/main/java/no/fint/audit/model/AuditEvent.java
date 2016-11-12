@@ -3,7 +3,7 @@ package no.fint.audit.model;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import no.fint.events.model.Event;
+import no.fint.event.Event;
 
 import java.io.Serializable;
 

@@ -1,6 +1,6 @@
 package no.fint.audit.model
 
-import no.fint.event.Event
+import no.fint.event.model.Event
 import spock.lang.Specification
 
 
@@ -8,9 +8,7 @@ class AuditEventSpeck extends Specification {
 
     def "Create AuditEvent when clearing data field set to true"() {
         given:
-        Event event = new Event();
-        event.setOrgId("rogfk.no")
-        event.setSource("Felleskomponent")
+        Event event = new Event("rogfk.no", "Felleskomponent", "GET", "C");
         event.addData("Hello world!")
         event.addData("Hello world again!")
 
@@ -27,9 +25,7 @@ class AuditEventSpeck extends Specification {
 
     def "Create AuditEvent when clearing data field set to false"() {
         given:
-        Event event = new Event();
-        event.setOrgId("rogfk.no")
-        event.setSource("Felleskomponent")
+        Event event = new Event("rogfk.no", "Felleskomponent", "GET", "C");
         event.addData("Hello world!")
         event.addData("Hello world again!")
 

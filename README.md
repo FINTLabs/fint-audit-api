@@ -1,5 +1,7 @@
 # FINT Audit API
 
+[![Build Status](https://jenkins.rogfk.no/buildStatus/icon?job=FINTprosjektet/fint-audit-api/master)](https://jenkins.rogfk.no/job/FINTprosjektet/job/fint-audit-api/job/master/)
+
 Interface for auditing
 
 ## Installation
@@ -13,7 +15,7 @@ repositories {
     }
 }
 
-compile('no.fint:fint-audit-api:0.0.10')
+compile('no.fint:fint-audit-api:0.0.12')
 ```
 
 ## Usage

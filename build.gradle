@@ -15,6 +15,9 @@ targetCompatibility = 1.8
 jar {
     baseName = "fint-audit-api"
     version = version
+    dependsOn classes
+    from sourceSets.main.output
+    exclude('no/fint/audit/FintAuditConfig.class')
 }
 
 repositories {

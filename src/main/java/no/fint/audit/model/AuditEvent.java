@@ -19,7 +19,7 @@ public class AuditEvent implements Serializable {
     private boolean clearData;
 
     private static final List<String> CLEARED_DATA = new ArrayList<>();
-    private static final String DATA_CLEARED_MESSAGE = "Data field cleared by audit service.";
+    static final String DATA_CLEARED_MESSAGE = "Data field cleared by audit service.";
 
     static {
         CLEARED_DATA.add(DATA_CLEARED_MESSAGE);

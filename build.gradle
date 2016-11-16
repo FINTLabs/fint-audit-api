@@ -2,9 +2,6 @@ plugins {
     id "com.jfrog.bintray" version "1.7"
 }
 
-group 'no.fint'
-version '0.0.14-SNAPSHOT'
-
 apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'groovy'
@@ -14,7 +11,7 @@ targetCompatibility = 1.8
 
 jar {
     baseName = "fint-audit-api"
-    version = version
+    version = '0.0.14-SNAPSHOT'
     dependsOn classes
     from sourceSets.main.output
     exclude('no/fint/audit/FintAuditConfig.class')
@@ -22,18 +19,19 @@ jar {
 
 repositories {
     maven {
-        url  "http://dl.bintray.com/fint/maven"
+        url "http://dl.bintray.com/fint/maven"
     }
     mavenCentral()
 }
 
+apply from: 'https://raw.githubusercontent.com/FINTprosjektet/fint-buildscripts/master/dependencies.gradle'
 dependencies {
-    compile('org.projectlombok:lombok:1.16.10')
-    compile('org.springframework.boot:spring-boot-starter:1.4.2.RELEASE')
+    compile("org.projectlombok:lombok:${lombokVersion}")
+    compile("org.springframework.boot:spring-boot-starter:${springBootVersion}")
 
     compile('no.fint:fint-event-model:0.0.3')
 
-    testCompile('org.spockframework:spock-core:1.1-groovy-2.4-rc-2')
+    testCompile("org.spockframework:spock-core:${spockSpringVersion}")
 }
 
 if (project.hasProperty('bintrayUser') && project.hasProperty('bintrayKey')) {

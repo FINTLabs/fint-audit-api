@@ -20,6 +20,8 @@ compile('no.fint:fint-audit-api:0.0.13')
 
 ## Usage
 
+The plugin should create a Spring `@Configuration` class (`no.fint.audit.FintAuditConfig`) that is responsible to create all the necessary beans.
+
 
 ## Upload
 

@@ -1,14 +1,14 @@
 package no.fint.audit.model;
 
-import lombok.EqualsAndHashCode;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 import no.fint.event.model.Event;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-@ToString
-@EqualsAndHashCode
+@Data
 @NoArgsConstructor
 public class AuditEvent implements Serializable {
     private String corrId;
@@ -18,18 +18,20 @@ public class AuditEvent implements Serializable {
     private Event event;
     private boolean clearData;
 
-    final private String DATA_CLEARED_MESSAGE = "Data field cleared by audit service.";
+    private static final List<String> CLEARED_DATA = new ArrayList<>();
+    private static final String DATA_CLEARED_MESSAGE = "Data field cleared by audit service.";
+
+    static {
+        CLEARED_DATA.add(DATA_CLEARED_MESSAGE);
+    }
 
     public AuditEvent(Event e) {
         corrId = e.getCorrId();
         source = e.getSource();
         orgId = e.getOrgId();
         clearData = true;
-
         event = prepareEvent(e);
-
         timestamp = System.currentTimeMillis();
-
     }
 
     public AuditEvent(Event e, boolean clearData) {
@@ -38,59 +40,25 @@ public class AuditEvent implements Serializable {
         orgId = e.getOrgId();
         this.clearData = clearData;
         event = prepareEvent(e);
-
         timestamp = System.currentTimeMillis();
     }
 
-    public String getCorrId() {
-        return corrId;
-    }
-
-    public void setCorrId(String corrId) {
-        this.corrId = corrId;
-    }
-
-    public String getSource() {
-        return source;
-    }
-
-    public void setSource(String source) {
-        this.source = source;
-    }
-
-    public String getOrgId() {
-        return orgId;
-    }
-
-    public void setOrgId(String orgId) {
-        this.orgId = orgId;
-    }
-
-    public long getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public Event getEvent() {
-        return event;
-    }
-
-    public void setEvent(Event event) {
-        this.event = event;
-    }
-
-    private Event prepareEvent(Event event) {
-        Event e = event;
-
-        if (Boolean.valueOf(clearData)) {
-            e.getData().clear();
-            e.getData().add(DATA_CLEARED_MESSAGE);
+    private Event prepareEvent(Event e) {
+        if (clearData) {
+            event = new Event();
+            event.setCorrId(e.getCorrId());
+            event.setVerb(e.getVerb());
+            event.setStatus(e.getStatus());
+            event.setTime(e.getTime());
+            event.setOrgId(e.getOrgId());
+            event.setSource(e.getSource());
+            event.setClient(e.getClient());
+            event.setMessage(e.getMessage());
+            event.setData(CLEARED_DATA);
+            return event;
+        } else {
+            return e;
         }
-
-        return e;
     }
 
 

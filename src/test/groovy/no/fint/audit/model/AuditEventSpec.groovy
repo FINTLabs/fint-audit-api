@@ -4,7 +4,7 @@ import no.fint.event.model.Event
 import spock.lang.Specification
 
 
-class AuditEventSpeck extends Specification {
+class AuditEventSpec extends Specification {
 
     def "Create AuditEvent when clearing data field set to true"() {
         given:
@@ -21,6 +21,7 @@ class AuditEventSpeck extends Specification {
         auditEvent.getSource() == "Felleskomponent"
         auditEvent.getEvent().getData().size() == 1
         auditEvent.getEvent().getData().get(0) == auditEvent.DATA_CLEARED_MESSAGE
+        auditEvent.getEvent().getData().hashCode() != event.getData().hashCode()
     }
 
     def "Create AuditEvent when clearing data field set to false"() {
@@ -37,5 +38,6 @@ class AuditEventSpeck extends Specification {
         auditEvent.getOrgId() == "rogfk.no"
         auditEvent.getSource() == "Felleskomponent"
         auditEvent.getEvent().getData().size() == 2
+        auditEvent.getEvent().getData().hashCode() == event.getData().hashCode()
     }
 }

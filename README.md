@@ -15,7 +15,7 @@ repositories {
     }
 }
 
-compile('no.fint:fint-audit-api:0.0.16')
+compile('no.fint:fint-audit-api:0.0.17')
 ```
 
 ## Usage

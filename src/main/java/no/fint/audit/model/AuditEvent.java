@@ -47,7 +47,7 @@ public class AuditEvent implements Serializable {
         if (clearData) {
             event = new Event();
             event.setCorrId(e.getCorrId());
-            event.setVerb(e.getVerb());
+            event.setAction(e.getAction());
             event.setStatus(e.getStatus());
             event.setTime(e.getTime());
             event.setOrgId(e.getOrgId());

@@ -29,7 +29,7 @@ dependencies {
     compile("org.projectlombok:lombok:${lombokVersion}")
     compile("org.springframework.boot:spring-boot-starter:${springBootVersion}")
 
-    compile('no.fint:fint-event-model:0.0.8')
+    compile('no.fint:fint-event-model:0.0.9')
 
     testCompile("org.spockframework:spock-core:${spockSpringVersion}")
 }

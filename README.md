@@ -1,6 +1,6 @@
 # FINT Audit API
 
-[![Build Status](https://jenkins.rogfk.no/buildStatus/icon?job=FINTprosjektet/fint-audit-api/master)](https://jenkins.rogfk.no/job/FINTprosjektet/job/fint-audit-api/job/master/)
+[![Build Status](https://travis-ci.org/FINTlibs/fint-audit-api.svg?branch=master)](https://travis-ci.org/FINTlibs/fint-audit-api)
 
 Interface for auditing
 

@@ -22,6 +22,12 @@ compile('no.fint:fint-audit-api:0.0.20')
 
 Add `@EnableFintAudit` to the main application class.
 
+Autowire in FintAuditService:
+```java
+@Autowired
+private FintAuditService fintAuditService;
+```
+
 Audit event and clear data:
 ```java
 fintAuditService.audit(event);

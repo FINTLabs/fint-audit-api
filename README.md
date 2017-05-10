@@ -8,23 +8,26 @@ Interface for auditing
 
 build.gradle
 
-```
+```groovy
 repositories {
     maven {
         url  "http://dl.bintray.com/fint/maven"
     }
 }
 
-compile('no.fint:fint-audit-api:0.0.19')
+compile('no.fint:fint-audit-api:0.0.20')
 ```
 
 ## Usage
 
-The plugin should create a Spring `@Configuration` class (`no.fint.audit.FintAuditConfig`) that is responsible to create all the necessary beans.
+Add `@EnableFintAudit` to the main application class.
 
+Audit event and clear data:
+```java
+fintAuditService.audit(event);
+```
 
-## Upload
-
-Upload release to bintray
-
-`./gradlew bintrayUpload -PbintrayUser=<username> -PbintrayKey=<apiKey>`
+Audit event and send in a flag to indicate if the data should be cleared:
+```java
+fintAuditService.audit(event, false);
+```

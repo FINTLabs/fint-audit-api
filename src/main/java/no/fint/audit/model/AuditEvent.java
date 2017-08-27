@@ -43,6 +43,7 @@ public class AuditEvent implements Serializable {
         timestamp = System.currentTimeMillis();
     }
 
+    @SuppressWarnings("unchecked")
     private Event prepareEvent(Event e) {
         if (clearData) {
             event = new Event();

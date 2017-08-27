@@ -12,7 +12,7 @@ targetCompatibility = 1.8
 
 jar {
     baseName = "fint-audit-api"
-    version = '1.0.0'
+    version = '1.1.0'
     dependsOn classes
     from sourceSets.main.output
     exclude('no/fint/audit/FintAuditConfig.class')
@@ -30,7 +30,7 @@ dependencies {
     compile("org.projectlombok:lombok:${lombokVersion}")
     compile("org.springframework.boot:spring-boot-starter:${springBootVersion}")
 
-    compile('no.fint:fint-event-model:1.0.0')
+    compile('no.fint:fint-event-model:2.0.0')
 
     testCompile("org.spockframework:spock-core:${spockSpringVersion}")
 }

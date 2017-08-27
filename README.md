@@ -15,7 +15,7 @@ repositories {
     }
 }
 
-compile('no.fint:fint-audit-api:1.0.0')
+compile('no.fint:fint-audit-api:1.1.0')
 ```
 
 ## Usage
@@ -31,6 +31,11 @@ private FintAuditService fintAuditService;
 Audit event and clear data:
 ```java
 fintAuditService.audit(event);
+```
+
+Audit event and set statuses. After this statement the input event will have the status `SENT_TO_CLIENT`:
+```java
+fintAuditService.audit(event, Status.CACHE_RESPONSE, Status.SENT_TO_CLIENT)
 ```
 
 Audit event and send in a flag to indicate if the data should be cleared:

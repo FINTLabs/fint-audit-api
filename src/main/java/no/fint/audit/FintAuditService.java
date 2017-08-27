@@ -9,14 +9,7 @@ public interface FintAuditService {
         audit(event, true);
     }
 
-    default void audit(Event event, Status... statuses) {
-        for (Status status : statuses) {
-            Event tempEvent = new Event(event);
-            tempEvent.setStatus(status);
-            audit(tempEvent, true);
-        }
-        event.setStatus(statuses[statuses.length - 1]);
-    }
+    void audit(Event event, Status... statuses);
 
     void audit(Event event, boolean clearData);
 }

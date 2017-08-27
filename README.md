@@ -15,7 +15,7 @@ repositories {
     }
 }
 
-compile('no.fint:fint-audit-api:1.1.0')
+compile('no.fint:fint-audit-api:1.1.1')
 ```
 
 ## Usage
@@ -33,7 +33,8 @@ Audit event and clear data:
 fintAuditService.audit(event);
 ```
 
-Audit event and set statuses. After this statement the input event will have the status `SENT_TO_CLIENT`:
+Set status on event and audit event. If there are multiple statuses, this will cause multiple audit log statements.  
+After the example below the input event will have the status `SENT_TO_CLIENT`:
 ```java
 fintAuditService.audit(event, Status.CACHE_RESPONSE, Status.SENT_TO_CLIENT)
 ```

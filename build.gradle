@@ -1,6 +1,6 @@
 plugins {
-    id 'com.jfrog.bintray' version '1.8.0'
-    id 'com.github.ben-manes.versions' version '0.17.0'
+    id 'com.jfrog.bintray' version '1.8.2'
+    id 'com.github.ben-manes.versions' version '0.20.0'
 }
 
 apply plugin: 'java'
@@ -29,7 +29,7 @@ dependencies {
     compile("org.projectlombok:lombok:${lombokVersion}")
     compile("org.springframework.boot:spring-boot-starter:${springBootVersion}")
 
-    compile('no.fint:fint-event-model:3.0.0-rc-2')
+    compile('no.fint:fint-event-model:3.0.0')
 
     testCompile("org.spockframework:spock-core:${spockSpringVersion}")
 }

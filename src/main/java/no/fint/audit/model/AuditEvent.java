@@ -26,12 +26,7 @@ public class AuditEvent implements Serializable {
     }
 
     public AuditEvent(Event e) {
-        corrId = e.getCorrId();
-        source = e.getSource();
-        orgId = e.getOrgId();
-        clearData = true;
-        event = prepareEvent(e);
-        timestamp = System.currentTimeMillis();
+        this(e, true);
     }
 
     public AuditEvent(Event e, boolean clearData) {
@@ -46,17 +41,9 @@ public class AuditEvent implements Serializable {
     @SuppressWarnings("unchecked")
     private Event prepareEvent(Event e) {
         if (clearData) {
-            event = new Event();
-            event.setCorrId(e.getCorrId());
-            event.setAction(e.getAction());
-            event.setStatus(e.getStatus());
-            event.setTime(e.getTime());
-            event.setOrgId(e.getOrgId());
-            event.setSource(e.getSource());
-            event.setClient(e.getClient());
-            event.setMessage(e.getMessage());
-            event.setData(CLEARED_DATA);
-            return event;
+            Event e2 = new Event(e);
+            e2.setData(CLEARED_DATA);
+            return e2;
         } else {
             return e;
         }

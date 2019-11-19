@@ -1,6 +1,6 @@
 # FINT Audit API
 
-[![Build Status](https://travis-ci.org/FINTlibs/fint-audit-api.svg?branch=master)](https://travis-ci.org/FINTlibs/fint-audit-api)
+[![Build Status](https://travis-ci.org/FINTLabs/fint-audit-api.svg?branch=master)](https://travis-ci.org/FINTLabs/fint-audit-api)
 
 Interface for auditing
 

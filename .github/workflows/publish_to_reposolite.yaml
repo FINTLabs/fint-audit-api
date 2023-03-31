@@ -1,0 +1,44 @@
+name: publish to Reposilite
+
+on:
+  release:
+    types: [ published ]
+  repository_dispatch:
+        types: [deploy-to-reposolite]
+
+jobs:
+  publish_lib:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set version
+        run: |
+          if [[ ${{ github.event_name }} == "repository_dispatch" ]]; then
+            echo "RELEASE_VERSION=${{ github.event.client_payload.version }}" >> $GITHUB_ENV
+          else
+            echo "RELEASE_VERSION=$(echo ${GITHUB_REF#refs/*/} | sed "s/^v//")" >> $GITHUB_ENV
+          fi
+          echo "refs: ${{ github.ref }}"
+          echo ${{ env.RELEASE_VERSION }}
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '8'
+          distribution: 'adopt'
+
+      - name: Gradle Wrapper Validation
+        uses: gradle/wrapper-validation-action@v1.0.4
+
+      - name: Gradle Build and publish to Reposilite
+        uses: gradle/gradle-build-action@v2.1.3
+        with:
+          arguments: |
+            clean
+            build
+            publish
+            -Pversion=${{ env.RELEASE_VERSION }}
+        env:
+          REPOSILITE_USERNAME: ${{ secrets.REPOSILITE_USERNAME }}
+          REPOSILITE_PASSWORD: ${{ secrets.REPOSILITE_PASSWORD }}

@@ -5,7 +5,9 @@ plugins {
     id 'groovy'
 }
 
-group = 'no.fintlabs'
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+}
 
 jar {
     dependsOn ('classes')
@@ -15,18 +17,14 @@ jar {
 
 repositories {
     mavenLocal()
-    repositories {
-        maven {
-            url "https://repo.fintlabs.no/releases"
-        }
+    maven {
+        url "https://repo.fintlabs.no/releases"
     }
     mavenCentral()
 }
-apply from: 'https://raw.githubusercontent.com/FINTlibs/fint-buildscripts/v1.3.0/dependencies.gradle'
-
 dependencies {
-    implementation("org.projectlombok:lombok:${lombokVersion}")
-    implementation("org.springframework.boot:spring-boot-starter:${springBootVersion}")
+    implementation("org.projectlombok:lombok:1.18.32")
+    implementation("org.springframework.boot:spring-boot-starter:3.2.4")
 
     implementation('no.fint:fint-event-model:3.0.1')
 

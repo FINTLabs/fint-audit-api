@@ -1,4 +1,4 @@
-package no.fint.audit;
+package no.fintlabs.audit;
 
 
 import no.fint.event.model.Event;

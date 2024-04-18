@@ -1,4 +1,4 @@
-package no.fint.audit;
+package no.fintlabs.audit;
 
 public class FintAuditConfig {
 }

@@ -1,4 +1,4 @@
-package no.fint.audit.model;
+package no.fintlabs.audit.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

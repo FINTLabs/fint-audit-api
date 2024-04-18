@@ -1,5 +1,0 @@
-language: java
-jdk:
-- openjdk17
-install: true
-script: ./gradlew build

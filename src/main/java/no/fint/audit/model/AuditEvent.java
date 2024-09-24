@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
 public class AuditEvent implements Serializable {
     private String corrId;
     private String source;
@@ -23,6 +22,11 @@ public class AuditEvent implements Serializable {
 
     static {
         CLEARED_DATA.add(DATA_CLEARED_MESSAGE);
+    }
+
+    public AuditEvent() {
+        timestamp = System.currentTimeMillis();
+        clearData = true;
     }
 
     public AuditEvent(Event e) {

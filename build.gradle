@@ -10,6 +10,7 @@ apply plugin: 'groovy'
 group = 'no.fintlabs'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+version = project.findProperty("version") == null ? "0.0.1-SNAPSHOT" : (String) project.findProperty("version")
 
 publishing {
     repositories {

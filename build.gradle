@@ -11,6 +11,26 @@ group = 'no.fintlabs'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+publishing {
+    repositories {
+        maven {
+            url "https://repo.fintlabs.no/releases"
+            credentials {
+                username = System.getenv("REPOSILITE_USERNAME")
+                password = System.getenv("REPOSILITE_PASSWORD")
+            }
+            authentication {
+                basic(BasicAuthentication)
+            }
+        }
+    }
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+
 jar {
     baseName = "fint-audit-api"
     dependsOn classes
@@ -22,7 +42,7 @@ repositories {
     maven {
         url 'https://repo.fintlabs.no/releases'
     }
-    jcenter()
+    mavenCentral()
 }
 
 apply from: 'https://raw.githubusercontent.com/FINTlibs/fint-buildscripts/v1.3.0/dependencies.gradle'
@@ -38,5 +58,3 @@ dependencies {
 task wrapper(type: Wrapper) {
     gradleVersion = gradleVersion
 }
-
-apply from: 'https://raw.githubusercontent.com/FINTLabs/fint-buildscripts/master/reposilite.ga.gradle'

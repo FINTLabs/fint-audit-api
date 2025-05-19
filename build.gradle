@@ -50,7 +50,7 @@ dependencies {
     compile("org.projectlombok:lombok:${lombokVersion}")
     compile("org.springframework.boot:spring-boot-starter:${springBootVersion}")
 
-    compile('no.fint:fint-event-model:3.1.0-rc-1')
+    compile('no.fint:fint-event-model:3.2.0-rc-1')
 
     testCompile("org.spockframework:spock-core:${spockSpringVersion}")
 }

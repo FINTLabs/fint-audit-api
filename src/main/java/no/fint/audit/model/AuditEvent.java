@@ -1,8 +1,8 @@
 package no.fint.audit.model;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import no.fint.event.model.Event;
+import no.fint.event.model.EventRequest;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -53,5 +53,11 @@ public class AuditEvent implements Serializable {
         }
     }
 
+    public void filterOdataQuery() {
+        EventRequest request = event.getRequest();
+        if (request != null && request.getQuery() != null) {
+            request.setQuery(request.getFilteredQuery());
+        }
+    }
 
 }

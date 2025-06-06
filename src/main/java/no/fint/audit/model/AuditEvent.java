@@ -58,6 +58,10 @@ public class AuditEvent implements Serializable {
         if (request != null && request.getQuery() != null) {
             request.setQuery(request.getFilteredQuery());
         }
+
+        if (event.getMessage() != null) {
+            event.setMessage(event.getFilteredMessage());
+        }
     }
 
 }

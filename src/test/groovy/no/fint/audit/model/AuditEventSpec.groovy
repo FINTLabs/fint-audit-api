@@ -104,4 +104,20 @@ class AuditEventSpec extends Specification {
         actual == expectedMasked
     }
 
+    def "filterOdataQuery masks message with \$filter expression"() {
+        given:
+        String originalMessage = "Result payload ?\$filter=status eq 'OK'&limit=5"
+        String expectedMasked = "Result payload ?\$filter=***&limit=5"
+        Event event = new Event("org", "src", "GET", "kind")
+        event.setMessage(originalMessage)
+        AuditEvent auditEvent = new AuditEvent(event, false)
+
+        when:
+        auditEvent.filterOdataQuery()
+        String actual = auditEvent.getEvent().getMessage()
+
+        then:
+        actual == expectedMasked
+    }
+
 }

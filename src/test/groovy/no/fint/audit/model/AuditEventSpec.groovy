@@ -106,8 +106,8 @@ class AuditEventSpec extends Specification {
 
     def "filterOdataQuery masks message with \$filter expression"() {
         given:
-        String originalMessage = "Result payload ?\$filter=status eq 'OK'&limit=5"
-        String expectedMasked = "Result payload ?\$filter=***&limit=5"
+        String originalMessage = "No case found for query: \$filter=tittel eq 'bob'"
+        String expectedMasked = "No case found for query: \$filter=***"
         Event event = new Event("org", "src", "GET", "kind")
         event.setMessage(originalMessage)
         AuditEvent auditEvent = new AuditEvent(event, false)
